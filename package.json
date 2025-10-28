@@ -3,29 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "tsx watch app/index.ts",
+    "start": "tsx app/index.ts"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^7.0.0-rc.6",
-    "axios": "^1.13.0",
     "dotenv": "^17.2.3",
-    "next": "16.0.0",
     "qrcode-terminal": "^0.12.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/axios": "^0.9.36",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "tsx": "^3.12.7"
   }
 }

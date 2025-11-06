@@ -1,6 +1,8 @@
-// index.ts or app/index.ts
+// ✅ index.ts or app/index.ts
+
+// ✅ Load environment variables early
 import dotenv from "dotenv";
-dotenv.config(); // ✅ Load environment variables early!
+dotenv.config();
 
 import express, { Request, Response } from "express";
 import makeWASocket, {
@@ -66,14 +68,14 @@ app.get("/", (req: Request, res: Response) => {
   res.send("WAAB bot is running ✅ - Powered by Advent NuruTech");
 });
 
+// ✅ Show full environment check
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🌍 Server alive on port ${PORT}`);
-  console.log("📦 Environment check:", {
-    APP_TITLE: process.env.APP_TITLE,
-    OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY ? "✅ Loaded" : "❌ Missing",
-    REFERER_URL: process.env.REFERER_URL || "Not set",
-  });
+  console.log("📦 Environment check:");
+  console.log("   APP_TITLE:", process.env.APP_TITLE || "Not set");
+  console.log("   OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY ? "✅ Loaded" : "❌ Missing");
+  console.log("   REFERER_URL:", process.env.REFERER_URL || "Not set");
 
   startBot()
     .then(() => console.log("🚀 Byron’s DeepSeek WhatsApp Bot is running..."))

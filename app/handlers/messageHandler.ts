@@ -1,13 +1,13 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import { openrouter } from "../config/openrouter.js"; // ensure .js if using type: module
+import { openrouter } from "../config/openrouter.js"; // ✅ must end with .js for ESM
 import { WAMessage, WASocket } from "@whiskeysockets/baileys";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 🧠 Directory for per-user/group memory
+// ✅ Ensure memory directory exists
 const memoryDir = path.resolve(process.cwd(), "app/data/memory");
 await fs.mkdir(memoryDir, { recursive: true });
 
@@ -15,7 +15,7 @@ await fs.mkdir(memoryDir, { recursive: true });
 interface MessageMemory {
   history: { role: "user" | "assistant"; content: string }[];
   lastInteraction: number;
-  contextType?: string; // tracks current conversation topic
+  contextType?: string;
 }
 
 // --- MEMORY FUNCTIONS ---
@@ -34,12 +34,12 @@ const saveUserMemory = async (chatId: string, memory: MessageMemory): Promise<vo
   await fs.writeFile(filePath, JSON.stringify(memory, null, 2), "utf8");
 };
 
-// --- KNOWLEDGE BASE LOADER (cache for performance) ---
+// --- KNOWLEDGE BASE LOADER (cached) ---
 const knowledgeDir = path.join(process.cwd(), "app/data/knowledge");
 let knowledgeCache: Record<string, string> | null = null;
 
 const loadKnowledgeBases = async (): Promise<Record<string, string>> => {
-  if (knowledgeCache) return knowledgeCache; // ✅ use cache
+  if (knowledgeCache) return knowledgeCache;
   const knowledge: Record<string, string> = {};
   try {
     const files = await fs.readdir(knowledgeDir);
@@ -58,12 +58,13 @@ const loadKnowledgeBases = async (): Promise<Record<string, string>> => {
   return knowledgeCache || {};
 };
 
-// --- HELPERS ---
+// --- HELPER DETECTORS ---
 const isGreeting = (text: string) =>
   /\b(hi|hello|hey|good morning|good afternoon|good evening)\b/i.test(text);
+
 const isQuestion = (text: string) =>
   text.trim().endsWith("?") ||
-  /\b(what|how|where|price|buy|cost|available)\b/i.test(text);
+  /\b(what|how|where|price|buy|cost|available|who|when|why)\b/i.test(text);
 
 const detectIntent = (text: string): string => {
   const lower = text.toLowerCase();
@@ -87,37 +88,49 @@ export const handleMessage = async (message: WAMessage, sock: WASocket): Promise
       message.message?.extendedTextMessage?.text ||
       "";
     const cleanedText = text.trim();
+
     if (!cleanedText || message.key.fromMe || sender === "status@broadcast") return;
 
     const chatMemory = await loadUserMemory(sender);
 
-    // Prevent duplicates
+    // ✅ Prevent duplicate user messages
     const lastUserMsg = chatMemory.history.filter(m => m.role === "user").pop()?.content;
     if (lastUserMsg === cleanedText) return;
 
-    // Check for greeting / question / continuation
+    // ✅ Auto detect when to respond
     const isFollowUp = Date.now() - chatMemory.lastInteraction < 1000 * 60 * 5; // within 5 minutes
     const shouldRespond = isGreeting(cleanedText) || isQuestion(cleanedText) || isFollowUp;
     if (!shouldRespond) return;
 
-    // Detect context
+    // ✅ Detect user intent and update context
     const intent = detectIntent(cleanedText);
     chatMemory.contextType = intent;
     chatMemory.history.push({ role: "user", content: cleanedText });
     chatMemory.lastInteraction = Date.now();
+
     if (chatMemory.history.length > 10) chatMemory.history = chatMemory.history.slice(-10);
 
-    // Knowledge context
+    // ✅ Load knowledge context
     const knowledgeBases = await loadKnowledgeBases();
     const selectedKnowledge =
       knowledgeBases[intent] || Object.values(knowledgeBases).slice(0, 2).join("\n");
 
+    // ✅ Conversation memory
     const conversationContext = chatMemory.history
       .map(m => `${m.role === "user" ? "User" : "Assistant"}: ${m.content}`)
       .join("\n")
       .slice(-2000);
 
-    // 🧠 Prompt optimized for fast, clean answers
+    // ✅ OpenRouter API key check before using
+    if (!process.env.OPENROUTER_API_KEY) {
+      console.error("❌ Missing OPENROUTER_API_KEY — please set it in Render Environment Variables.");
+      await sock.sendMessage(sender, {
+        text: "⚠️ The AI assistant is temporarily offline due to configuration. Please try again later.",
+      });
+      return;
+    }
+
+    // ✅ Prompt setup
     const prompt = `
 You are Byron's AI WhatsApp assistant for NuruShop and Advent NuruTech.
 
@@ -145,17 +158,23 @@ Now respond briefly and clearly to:
 "${cleanedText}"
 `;
 
+    // ✅ AI reply via OpenRouter
     const reply = await openrouter(prompt);
-    if (!reply) return;
+    if (!reply) {
+      console.warn("⚠️ OpenRouter returned no reply.");
+      return;
+    }
 
     const cleanReply = reply
       .replace(/<\|.*?\|>/g, "")
       .replace(/\n{3,}/g, "\n\n")
       .trim();
 
+    // ✅ Save memory
     chatMemory.history.push({ role: "assistant", content: cleanReply });
     await saveUserMemory(sender, chatMemory);
 
+    // ✅ Send back response
     await sock.sendMessage(sender, { text: cleanReply });
   } catch (err) {
     console.error("❌ Error in handleMessage:", err);

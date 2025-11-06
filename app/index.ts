@@ -1,4 +1,7 @@
-import "dotenv/config";
+// index.ts or app/index.ts
+import dotenv from "dotenv";
+dotenv.config(); // ✅ Load environment variables early!
+
 import express, { Request, Response } from "express";
 import makeWASocket, {
   useMultiFileAuthState,
@@ -44,6 +47,7 @@ const startBot = async () => {
 
     if (connection === "open") {
       console.log("✅ WhatsApp Connected Successfully!");
+      console.log("🔑 OpenRouter API Key Loaded:", !!process.env.OPENROUTER_API_KEY);
     }
   });
 
@@ -65,6 +69,12 @@ app.get("/", (req: Request, res: Response) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🌍 Server alive on port ${PORT}`);
+  console.log("📦 Environment check:", {
+    APP_TITLE: process.env.APP_TITLE,
+    OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY ? "✅ Loaded" : "❌ Missing",
+    REFERER_URL: process.env.REFERER_URL || "Not set",
+  });
+
   startBot()
     .then(() => console.log("🚀 Byron’s DeepSeek WhatsApp Bot is running..."))
     .catch((err) => console.error("❌ Error starting bot:", err));

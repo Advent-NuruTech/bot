@@ -1,4 +1,5 @@
 import "dotenv/config";
+import express, { Request, Response } from "express";
 import makeWASocket, {
   useMultiFileAuthState,
   DisconnectReason,
@@ -8,8 +9,9 @@ import makeWASocket, {
 } from "@whiskeysockets/baileys";
 import P from "pino";
 import qrcode from "qrcode-terminal";
-import { handleMessage } from "./handlers/messageHandler.js"; // 👈 must include .js when using type: module
+import { handleMessage } from "./handlers/messageHandler.js"; // 👈 must include .js for ESM
 
+// 🧠 WhatsApp bot logic
 const startBot = async () => {
   const { state, saveCreds } = await useMultiFileAuthState("./app/baileys/session");
 
@@ -19,10 +21,8 @@ const startBot = async () => {
     printQRInTerminal: false,
   });
 
-  // 🔐 Auto-save credentials
   sock.ev.on("creds.update", saveCreds);
 
-  // ⚙️ Connection state handler
   sock.ev.on("connection.update", (update: Partial<ConnectionState>) => {
     const { connection, lastDisconnect, qr } = update;
 
@@ -38,7 +38,7 @@ const startBot = async () => {
         console.log("❌ Logged out. Please rescan QR code.");
       } else {
         console.log("🔄 Connection closed. Reconnecting...");
-        startBot(); // auto reconnect
+        startBot();
       }
     }
 
@@ -47,7 +47,6 @@ const startBot = async () => {
     }
   });
 
-  // 💬 Incoming messages
   sock.ev.on("messages.upsert", async (m) => {
     const message = m.messages[0];
     if (!message.message || message.key.fromMe) return;
@@ -56,7 +55,17 @@ const startBot = async () => {
   });
 };
 
-// 🚀 Start bot
-startBot()
-  .then(() => console.log("🚀 Byron’s DeepSeek WhatsApp Bot is running..."))
-  .catch((err) => console.error("❌ Error starting bot:", err));
+// 🚀 Express server to keep host alive (Render/Deta/other)
+const app = express();
+
+app.get("/", (req: Request, res: Response) => {
+  res.send("WAAB bot is running ✅ - Powered by Advent NuruTech");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🌍 Server alive on port ${PORT}`);
+  startBot()
+    .then(() => console.log("🚀 Byron’s DeepSeek WhatsApp Bot is running..."))
+    .catch((err) => console.error("❌ Error starting bot:", err));
+});

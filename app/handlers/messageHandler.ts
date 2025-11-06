@@ -1,14 +1,14 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import { openrouter } from "../config/openrouter";
+import { openrouter } from "../config/openrouter.js"; // ensure .js if using type: module
 import { WAMessage, WASocket } from "@whiskeysockets/baileys";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 🧠 Directory for per-user/group memory
-const memoryDir = path.resolve(__dirname, "../../data/memory");
+const memoryDir = path.resolve(process.cwd(), "app/data/memory");
 await fs.mkdir(memoryDir, { recursive: true });
 
 // 💾 Memory interface
@@ -35,29 +35,35 @@ const saveUserMemory = async (chatId: string, memory: MessageMemory): Promise<vo
 };
 
 // --- KNOWLEDGE BASE LOADER (cache for performance) ---
-const knowledgeDir = path.resolve("C:/Users/ADVENT/Desktop/waab/app/data/knowledge");
+const knowledgeDir = path.join(process.cwd(), "app/data/knowledge");
 let knowledgeCache: Record<string, string> | null = null;
 
 const loadKnowledgeBases = async (): Promise<Record<string, string>> => {
   if (knowledgeCache) return knowledgeCache; // ✅ use cache
   const knowledge: Record<string, string> = {};
-  const files = await fs.readdir(knowledgeDir);
-  for (const file of files) {
-    if (file.endsWith(".json")) {
-      const content = await fs.readFile(path.join(knowledgeDir, file), "utf8");
-      const key = path.basename(file, ".json");
-      knowledge[key] = content;
+  try {
+    const files = await fs.readdir(knowledgeDir);
+    for (const file of files) {
+      if (file.endsWith(".json")) {
+        const content = await fs.readFile(path.join(knowledgeDir, file), "utf8");
+        const key = path.basename(file, ".json");
+        knowledge[key] = content;
+      }
     }
+    knowledgeCache = knowledge;
+    console.log("✅ Knowledge bases cached:", Object.keys(knowledge));
+  } catch (err) {
+    console.error("⚠️ Failed to load knowledge bases:", err);
   }
-  knowledgeCache = knowledge;
-  console.log("✅ Knowledge bases cached:", Object.keys(knowledge));
-  return knowledge;
+  return knowledgeCache || {};
 };
 
 // --- HELPERS ---
-const isGreeting = (text: string) => /\b(hi|hello|hey|good morning|good afternoon|good evening)\b/i.test(text);
+const isGreeting = (text: string) =>
+  /\b(hi|hello|hey|good morning|good afternoon|good evening)\b/i.test(text);
 const isQuestion = (text: string) =>
-  text.trim().endsWith("?") || /\b(what|how|where|price|buy|cost|available)\b/i.test(text);
+  text.trim().endsWith("?") ||
+  /\b(what|how|where|price|buy|cost|available)\b/i.test(text);
 
 const detectIntent = (text: string): string => {
   const lower = text.toLowerCase();
@@ -90,11 +96,8 @@ export const handleMessage = async (message: WAMessage, sock: WASocket): Promise
     if (lastUserMsg === cleanedText) return;
 
     // Check for greeting / question / continuation
-    const isFollowUp =
-      Date.now() - chatMemory.lastInteraction < 1000 * 60 * 5; // within 5 minutes
-    const shouldRespond =
-      isGreeting(cleanedText) || isQuestion(cleanedText) || isFollowUp;
-
+    const isFollowUp = Date.now() - chatMemory.lastInteraction < 1000 * 60 * 5; // within 5 minutes
+    const shouldRespond = isGreeting(cleanedText) || isQuestion(cleanedText) || isFollowUp;
     if (!shouldRespond) return;
 
     // Detect context
@@ -102,14 +105,12 @@ export const handleMessage = async (message: WAMessage, sock: WASocket): Promise
     chatMemory.contextType = intent;
     chatMemory.history.push({ role: "user", content: cleanedText });
     chatMemory.lastInteraction = Date.now();
-    if (chatMemory.history.length > 10)
-      chatMemory.history = chatMemory.history.slice(-10);
+    if (chatMemory.history.length > 10) chatMemory.history = chatMemory.history.slice(-10);
 
     // Knowledge context
     const knowledgeBases = await loadKnowledgeBases();
     const selectedKnowledge =
-      knowledgeBases[intent] ||
-      Object.values(knowledgeBases).slice(0, 2).join("\n");
+      knowledgeBases[intent] || Object.values(knowledgeBases).slice(0, 2).join("\n");
 
     const conversationContext = chatMemory.history
       .map(m => `${m.role === "user" ? "User" : "Assistant"}: ${m.content}`)

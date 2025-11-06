@@ -1,0 +1,190 @@
+{
+  "shop": {
+    "store_name": "nurushop",
+    "brand": "NuruShop – Health and Truth Center",
+    "contact": {
+      "location": "Kenya",
+      "website": "https://nurushop.co.ke",
+      "email": "nurushoponline@gmail.com",
+      "phone": "+254 40283082"
+    },
+    "categories": {
+      "Bibles": [
+        {
+          "name": "King James Version (KJV) Standard Bible",
+          "description": "Classic King James Bible with concordance and cross references.",
+          "price": "KSh 2,000",
+          "link": "https://nurushop.adventnurutech.xyz/product/bible-kjv-standard"
+        },
+        {
+          "name": "New King James Version (NKJV) Study Bible",
+          "description": "Comprehensive NKJV study edition with commentary and maps.",
+          "price": "KSh 3,500",
+          "link": "https://nurushop.adventnurutech.xyz/product/bible-nkjv-study"
+        },
+        {
+          "name": "Andrews Study Bible (NKJV)",
+          "description": "Seventh-day Adventist annotated NKJV Bible with historical notes.",
+          "price": "KSh 5,800",
+          "link": "https://nurushop.adventnurutech.xyz/product/bible-andrews-study"
+        },
+        {
+          "name": "Clear Word Bible",
+          "description": "Modern paraphrase of the Bible designed for devotional reading.",
+          "price": "KSh 3,000",
+          "link": "https://nurushop.adventnurutech.xyz/product/bible-clearword"
+        },
+
+          {
+          "name": "Large Print Compact KJV Bible",
+          "description": "words of jesus written in red , good quality cover , very portable to carry along .",
+          "price": "KSh 1300",
+          "link": "https://www.nurushop.co.ke/products/LdCZdIb8E10rrcz1iSlc"
+        }
+      ],
+
+      "EGW Books": [
+        {
+          "name": "The Great Controversy",
+          "description": "Ellen G. White’s prophetic view of Christian history and end-time events.",
+          "price": "KSh 1,200",
+          "link": "https://nurushop.adventnurutech.xyz/product/egw-great-controversy"
+        },
+        {
+          "name": "Steps to Christ",
+          "description": "A spiritual classic guiding believers to a closer walk with Christ.",
+          "price": "KSh 800",
+          "link": "https://nurushop.adventnurutech.xyz/product/egw-steps-to-christ"
+        },
+        {
+          "name": "Desire of Ages",
+          "description": "Biography of Christ’s life and ministry revealing His divine love.",
+          "price": "KSh 1,500",
+          "link": "https://nurushop.adventnurutech.xyz/product/egw-desire-of-ages"
+        },
+        {
+          "name": "Ministry of Healing",
+          "description": "Principles of natural healing, temperance, and holistic living.",
+          "price": "KSh 1,300",
+          "link": "https://nurushop.adventnurutech.xyz/product/egw-ministry-of-healing"
+        },
+        {
+          "name": "Christ’s Object Lessons",
+          "description": "Spiritual lessons drawn from the parables of Jesus.",
+          "price": "KSh 1,000",
+          "link": "https://nurushop.adventnurutech.xyz/product/egw-christs-object-lessons"
+        }
+      ],
+
+      "Pioneer Writings": [
+        {
+          "name": "Joseph Bates – The Seventh Day Sabbath, a Perpetual Sign",
+          "description": "A foundational SDA pioneer defense of the Sabbath truth.",
+          "price": "KSh 900",
+          "link": "https://nurushop.adventnurutech.xyz/product/pioneer-bates-sabbath"
+        },
+        {
+          "name": "James White – Life Incidents",
+          "description": "Biography and experiences of one of the Advent movement founders.",
+          "price": "KSh 1,000",
+          "link": "https://nurushop.adventnurutech.xyz/product/pioneer-jameswhite-lifeincidents"
+        },
+        {
+          "name": "J.N. Andrews – History of the Sabbath",
+          "description": "Comprehensive historical account of Sabbath observance through ages.",
+          "price": "KSh 1,200",
+          "link": "https://nurushop.adventnurutech.xyz/product/pioneer-andrews-history-sabbath"
+        }
+      ],
+
+      "Bible Covers": [
+        {
+          "name": "Leather Bible Cover (Brown)",
+          "description": "Durable leather cover with zip closure and handle.",
+          "price": "KSh 1,200",
+          "link": "https://nurushop.adventnurutech.xyz/product/biblecover-leather-brown"
+        },
+        {
+          "name": "Fabric Bible Cover (Blue)",
+          "description": "Strong canvas material with internal pockets.",
+          "price": "KSh 900",
+          "link": "https://nurushop.adventnurutech.xyz/product/biblecover-fabric-blue"
+        }
+      ],
+
+      "Songbooks": [
+        {
+          "name": "Seventh-day Adventist Hymnal",
+          "description": "Official hymnal with lyrics and tunes for worship services.",
+          "price": "KSh 1,800",
+          "link": "https://nurushop.adventnurutech.xyz/product/songbook-sda-hymnal"
+        },
+        {
+          "name": "Christ in Song",
+          "description": "Collection of classic hymns used in revival meetings and evangelism.",
+          "price": "KSh 1,500",
+          "link": "https://nurushop.adventnurutech.xyz/product/songbook-christ-in-song"
+        }
+      ],
+
+      "Spices": [
+        { "name": "Cumin", "price": "KSh 150", "description": "Aromatic spice for digestion and flavor.", "link": "https://nurushop.adventnurutech.xyz/product/spice-cumin" },
+        { "name": "Coriander", "price": "KSh 150", "description": "Used for seasoning and aiding digestion.", "link": "https://nurushop.adventnurutech.xyz/product/spice-coriander" },
+        { "name": "Fennel", "price": "KSh 180", "description": "Soothes digestion and boosts appetite.", "link": "https://nurushop.adventnurutech.xyz/product/spice-fennel" },
+        { "name": "Black Pepper", "price": "KSh 200", "description": "Enhances flavor and improves absorption.", "link": "https://nurushop.adventnurutech.xyz/product/spice-blackpepper" },
+        { "name": "Cloves", "price": "KSh 250", "description": "Strong antiseptic and aromatic spice.", "link": "https://nurushop.adventnurutech.xyz/product/spice-cloves" },
+        { "name": "Green Cardamom", "price": "KSh 300", "description": "Sweet aromatic spice used in beverages.", "link": "https://nurushop.adventnurutech.xyz/product/spice-cardamom-green" },
+        { "name": "Cinnamon", "price": "KSh 220", "description": "Helps regulate sugar and adds rich flavor.", "link": "https://nurushop.adventnurutech.xyz/product/spice-cinnamon" },
+        { "name": "Turmeric", "price": "KSh 180", "description": "Anti-inflammatory and antioxidant spice.", "link": "https://nurushop.adventnurutech.xyz/product/spice-turmeric" }
+      ],
+
+      "Herbs": [
+        { "name": "Saw Palmetto", "price": "KSh 500", "description": "Supports prostate health and hormones.", "link": "https://nurushop.adventnurutech.xyz/product/herb-saw-palmetto" },
+        { "name": "Sarsaparilla", "price": "KSh 450", "description": "Purifies blood and boosts energy.", "link": "https://nurushop.adventnurutech.xyz/product/herb-sarsaparilla" },
+        { "name": "Holy Basil", "price": "KSh 400", "description": "Adaptogenic herb supporting immunity.", "link": "https://nurushop.adventnurutech.xyz/product/herb-holybasil" },
+        { "name": "Sea Moss", "price": "KSh 700", "description": "Rich in 92 minerals; great for detox and skin health.", "link": "https://nurushop.adventnurutech.xyz/product/herb-seamoss" },
+        { "name": "Ashwagandha", "price": "KSh 500", "description": "Helps reduce stress and improve focus.", "link": "https://nurushop.adventnurutech.xyz/product/herb-ashwagandha" }
+      ],
+
+      "Nuts": [
+        { "name": "Raw Cashew Nuts", "price": "KSh 1,200/kg", "description": "Unroasted cashew nuts rich in healthy fats.", "link": "https://nurushop.adventnurutech.xyz/product/nuts-cashew-raw" },
+        { "name": "Roasted Cashew Nuts", "price": "KSh 1,400/kg", "description": "Roasted cashews with light salt flavor.", "link": "https://nurushop.adventnurutech.xyz/product/nuts-cashew-roasted" },
+        { "name": "Raw Almond Nuts", "price": "KSh 1,800/kg", "description": "Rich in Vitamin E and protein.", "link": "https://nurushop.adventnurutech.xyz/product/nuts-almond-raw" },
+        { "name": "Walnuts", "price": "KSh 2,000/kg", "description": "Omega-3 rich brain-boosting nuts.", "link": "https://nurushop.adventnurutech.xyz/product/nuts-walnuts" }
+      ],
+
+      "Super Foods": [
+        { "name": "Red Maca Roots", "price": "KSh 700/100g", "description": "Energy and fertility booster.", "link": "https://nurushop.adventnurutech.xyz/product/superfood-redmaca" },
+        { "name": "Tongkat Ali", "price": "KSh 1,000/50g", "description": "Natural testosterone and vitality enhancer.", "link": "https://nurushop.adventnurutech.xyz/product/superfood-tongkatali" },
+        { "name": "Spirulina", "price": "KSh 600/100g", "description": "Nutrient-rich blue-green algae.", "link": "https://nurushop.adventnurutech.xyz/product/superfood-spirulina" },
+        { "name": "Elderberry", "price": "KSh 700/100g", "description": "Boosts immune system naturally.", "link": "https://nurushop.adventnurutech.xyz/product/superfood-elderberry" }
+      ],
+
+      "Seeds": [
+        { "name": "Sunflower Seeds", "price": "KSh 300/250g", "description": "Rich in healthy fats and vitamin E.", "link": "https://nurushop.adventnurutech.xyz/product/seeds-sunflower" },
+        { "name": "Pumpkin Seeds", "price": "KSh 350/250g", "description": "High in magnesium and zinc.", "link": "https://nurushop.adventnurutech.xyz/product/seeds-pumpkin" },
+        { "name": "Pistachio Seeds", "price": "KSh 800/250g", "description": "Great snack rich in protein.", "link": "https://nurushop.adventnurutech.xyz/product/seeds-pistachio" }
+      ],
+
+      "Dried Fruits": [
+        { "name": "Apricot", "price": "KSh 500/250g", "description": "Rich in Vitamin A and fiber.", "link": "https://nurushop.adventnurutech.xyz/product/dried-apricot" },
+        { "name": "Cranberries", "price": "KSh 600/250g", "description": "Boosts urinary tract health.", "link": "https://nurushop.adventnurutech.xyz/product/dried-cranberries" },
+        { "name": "Raisins", "price": "KSh 400/250g", "description": "Natural energy source and iron-rich.", "link": "https://nurushop.adventnurutech.xyz/product/dried-raisins" },
+        { "name": "Dates", "price": "KSh 450/250g", "description": "Sweet, fiber-rich energy food.", "link": "https://nurushop.adventnurutech.xyz/product/dried-dates" }
+      ],
+
+       "oils": [
+
+        { "name": "Pure olive oil", "price": "KSh 1500/250g", "description": "best for natural hair maintanace , no additives .", "link": "https://www.nurushop.co.ke/products/8KhSPAKJLp5Xe4jQ33Hx" }
+        
+      ],
+
+      "Natural Remedies": [
+        { "name": "Activated Charcoal", "price": "KSh 500/100g", "description": "Powerful detoxifier for poisoning and cleansing.", "link": "https://nurushop.adventnurutech.xyz/product/remedy-activated-charcoal" },
+        { "name": "Cabbage Juice Mix", "price": "KSh 400/250ml", "description": "Natural stomach ulcer relief formula.", "link": "https://nurushop.adventnurutech.xyz/product/remedy-cabbage-juice" },
+        { "name": "Aloe Vera Gel", "price": "KSh 350/100ml", "description": "Skin healing and digestive aid.", "link": "https://nurushop.adventnurutech.xyz/product/remedy-aloe-vera" },
+        { "name": "Sea Moss Gel", "price": "KSh 700/250ml", "description": "Rich in minerals for immunity and vitality.", "link": "https://nurushop.adventnurutech.xyz/product/remedy-seamoss" }
+      ]
+    }
+  }
+}

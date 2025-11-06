@@ -1,0 +1,13 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Hello"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?"
+    }
+  ],
+  "lastInteraction": 1762171138502
+}

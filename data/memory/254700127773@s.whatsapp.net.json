@@ -1,0 +1,13 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Good Morning mtumishi\nI don't know of today's plan...are we going to present during the evening prayers?"
+    },
+    {
+      "role": "assistant",
+      "content": "Morning. Yes, we're presenting during evening prayers."
+    }
+  ],
+  "lastInteraction": 1762154825705
+}

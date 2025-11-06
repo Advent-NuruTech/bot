@@ -1,0 +1,50 @@
+{
+  "history": [
+    {
+      "role": "assistant",
+      "content": "Hellow! Thank you for your interest in natural remedies. 🌿  \n\nAt Nurushop, we currently have a range of natural health products, but if you're looking for something specific that isn't listed, I'd recommend checking our website: [nurushop.co.ke](https://nurushop.co.ke).  \n\nFor personal advice or more details, feel free to reach out to Mtumishi Byron at +254740283082.  \n\nBest regards,  \nThe Nurushop Team"
+    },
+    {
+      "role": "user",
+      "content": "Yes good evening"
+    },
+    {
+      "role": "assistant",
+      "content": "Good evening! 🌙\n\nHow can I assist you today? Feel free to ask about our products, services, or any other inquiries. We're here to help!\n\nBest regards,  \nThe Nurushop Team<｜begin▁of▁sentence｜>"
+    },
+    {
+      "role": "user",
+      "content": "Good evening"
+    },
+    {
+      "role": "assistant",
+      "content": "Good evening! How can I assist you today?"
+    },
+    {
+      "role": "user",
+      "content": "I need activated charcoal"
+    },
+    {
+      "role": "assistant",
+      "content": "Great! We have activated charcoal available.  \n\n **Product:** Activated Charcoal  \n💰 **Price:** KSH 450  \n🔗 **Link:** [nurushop.co.ke/activated-charcoal](https://nurushop.co.ke/activated-charcoal)  \n📜 **Details:** Natural detoxifying agent, used for purification and emergency toxin removal.  \n\nLet me know if you'd like to place an order or need more details! 😊"
+    },
+    {
+      "role": "user",
+      "content": "Yes placing order"
+    },
+    {
+      "role": "assistant",
+      "content": "Great! To place your order for **Activated Charcoal**, please provide your delivery details (name, address, and phone number) via WhatsApp to **+254759167209**. We'll confirm your order and arrange delivery. Payment can be made upon delivery or via M-Pesa.\n\nThank you for choosing NuruShop! 🌟"
+    },
+    {
+      "role": "user",
+      "content": "Thanks"
+    },
+    {
+      "role": "assistant",
+      "content": "You're welcome! 😊 If you have any more questions or need further assistance, just let me know. Have a great day! 🌟"
+    }
+  ],
+  "lastInteraction": 1762268726485,
+  "contextType": "general"
+}

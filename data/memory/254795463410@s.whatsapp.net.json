@@ -1,0 +1,13 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Greetings can you help in some health cases"
+    },
+    {
+      "role": "assistant",
+      "content": "I can provide general advice on minor health concerns, but always consult a professional for serious issues."
+    }
+  ],
+  "lastInteraction": 1762158646901
+}

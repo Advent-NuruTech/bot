@@ -1,0 +1,50 @@
+{
+  "history": [
+    {
+      "role": "assistant",
+      "content": "Perfect! I’ve added 3 bottles of Activated Charcoal to your order — that’s KSh 2,100. Your order will be processed and shipped to your address in Kakamega. You’ll receive a confirmation and tracking details via SMS soon. \n\nThank you for shopping with NuruShop! ✨"
+    },
+    {
+      "role": "user",
+      "content": "Hellow good morning"
+    },
+    {
+      "role": "assistant",
+      "content": "Good morning! How can I help you today? 😊"
+    },
+    {
+      "role": "user",
+      "content": "What is in the store"
+    },
+    {
+      "role": "assistant",
+      "content": "Good morning! Here’s what’s currently available at NuruShop:\n\n🌿 *Health & Wellness:*\n- Activated Charcoal (KSh 700)\n- Organic Turmeric Powder (KSh 600)\n- Neem Oil (KSh 1,200)\n\n💻 *Tech & Gadgets:*\n- Wireless Earbuds (KSh 1,500)\n- 10W Solar Charger (KSh 3,500)\n\nYou can view more products and details at [nurushop.co.ke](http://nurushop.co.ke). Let me know if you’d like to order anything! 😊"
+    },
+    {
+      "role": "user",
+      "content": "Bibles"
+    },
+    {
+      "role": "assistant",
+      "content": "At the moment, we don't have physical Bibles in stock at NuruShop, but I can highly recommend the Bible app by YouVersion—it's free and has many translations. 🌟\n\nIf you're looking for something else, just let me know!"
+    },
+    {
+      "role": "user",
+      "content": "Spices"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! Here are some spices we have in stock:\n\n️ *Spices:*\n- Turmeric Powder (Organic) — KSh 450\n- Curry Powder (Blend) — KSh 380\n- Cayenne Pepper (Ground) — KSh 420\n\nAll spices are freshly packed and available for delivery. \n\nWant to add any to your cart? 😊"
+    },
+    {
+      "role": "user",
+      "content": "10 tumerics"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! Here’s the pricing for 10 units of Organic Turmeric Powder:\n\n🛒 *Product:* Organic Turmeric Powder\n💰 *Price:* KSh 4,500 (for 10 units)\n🔗 *Link:* nurushop.co.ke/organic-turmeric\n📜 *Details:* Organic, freshly packed, and great for health and cooking.\n\nLet me know if you'd like to proceed with the order! 😊"
+    }
+  ],
+  "lastInteraction": 1762412288105,
+  "contextType": "general"
+}

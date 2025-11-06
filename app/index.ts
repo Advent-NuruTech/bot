@@ -8,7 +8,7 @@ import makeWASocket, {
 } from "@whiskeysockets/baileys";
 import P from "pino";
 import qrcode from "qrcode-terminal";
-import { handleMessage } from "./handlers/messageHandler";
+import { handleMessage } from "./handlers/messageHandler.js"; // 👈 must include .js when using type: module
 
 const startBot = async () => {
   const { state, saveCreds } = await useMultiFileAuthState("./app/baileys/session");
@@ -16,13 +16,13 @@ const startBot = async () => {
   const sock: WASocket = makeWASocket({
     auth: state,
     logger: P({ level: "silent" }),
-    printQRInTerminal: false, // ✅ prevent deprecated warning
+    printQRInTerminal: false,
   });
 
-  // Save creds automatically
+  // 🔐 Auto-save credentials
   sock.ev.on("creds.update", saveCreds);
 
-  // Handle connection updates (modern way)
+  // ⚙️ Connection state handler
   sock.ev.on("connection.update", (update: Partial<ConnectionState>) => {
     const { connection, lastDisconnect, qr } = update;
 
@@ -38,7 +38,7 @@ const startBot = async () => {
         console.log("❌ Logged out. Please rescan QR code.");
       } else {
         console.log("🔄 Connection closed. Reconnecting...");
-        startBot();
+        startBot(); // auto reconnect
       }
     }
 
@@ -47,7 +47,7 @@ const startBot = async () => {
     }
   });
 
-  // Handle messages
+  // 💬 Incoming messages
   sock.ev.on("messages.upsert", async (m) => {
     const message = m.messages[0];
     if (!message.message || message.key.fromMe) return;
@@ -56,7 +56,7 @@ const startBot = async () => {
   });
 };
 
-// Start bot
+// 🚀 Start bot
 startBot()
   .then(() => console.log("🚀 Byron’s DeepSeek WhatsApp Bot is running..."))
   .catch((err) => console.error("❌ Error starting bot:", err));

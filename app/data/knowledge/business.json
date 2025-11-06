@@ -1,0 +1,121 @@
+{
+  "catalog": {
+    "title": "ADVENT NURUTECH PRODUCT CATALOG – 2025 EDITION",
+    "subtitle": "Digital Product & Solution Catalog 2025",
+    "organization": {
+      "name": "Advent NuruTech – Innovating with Purpose",
+      "tagline": "Bridging Technology, Faith & Community Impact",
+      "contact": {
+        "location": "Oyugis, Homabay, Kenya",
+        "phone": "+254 759 1672 209",
+        "email": "adventnurutech@gmail.com",
+        "website": "https://adventnurutech.xyz"
+      }
+    },
+    "categories": {
+      "AI & Chatbot Solutions": {
+        "WhatsApp Chatbots": {
+          "description": "Custom AI chatbot for WhatsApp that answers questions, gives Bible lessons, health tips, or handles customer inquiries.",
+          "features": [
+            "Supports text, images, and voice",
+            "Includes memory for personalized responses"
+          ],
+          "pricing": "Available on request"
+        },
+        "Website Chatbots": {
+          "description": "Intelligent assistants embedded in your business or ministry websites.",
+          "features": [
+            "Trained on your data and documents",
+            "Available 24/7 to guide visitors and collect leads"
+          ],
+          "pricing": "Available on request"
+        },
+        "AI Knowledgebase Agents": {
+          "description": "Private or public LLMs trained on your content (e.g., Ellen White writings, health materials, or company data).",
+          "features": [
+            "Deployable as web or mobile apps"
+          ],
+          "pricing": "Available on request"
+        }
+      },
+
+      "Web Development & Cloud Solutions": {
+        "Modern Websites": {
+          "description": "Responsive, animated websites using Next.js, TailwindCSS, Firebase & Framer Motion.",
+          "features": [
+            "Includes admin dashboard, contact form, and content management"
+          ],
+          "pricing": "Available on request"
+        },
+        "Cloud & Automation Tools": {
+          "description": "AI-driven dashboards for data entry, reporting, and notifications.",
+          "features": [
+            "Firebase + AI API integrations for real-time operation"
+          ],
+          "pricing": "Available on request"
+        },
+        "Church Management Systems": {
+          "description": "Digital tithe/offering tracking, event scheduling, and membership dashboards.",
+          "features": [
+            "Integrated with WhatsApp reminders and reports"
+          ],
+          "pricing": "Available on request"
+        }
+      },
+
+      "Business Portals & Platforms": {
+        "E-Commerce Solutions": {
+          "description": "Smart online stores integrated with M-Pesa, WhatsApp, and Firebase admin dashboards.",
+          "features": [
+            "Includes inventory management, customer chat, and manual payment verification"
+          ],
+          "pricing": "Available on request"
+        },
+        "Hotel Automation Platform": {
+          "description": "Digital office for hotels—manage customers, staff, finances, and bookings in one dashboard.",
+          "features": [
+            "Real-time analytics and reports"
+          ],
+          "pricing": "Available on request"
+        },
+        "SME Digital Tools": {
+          "description": "Tailored web and AI automation tools for Kenyan small & medium enterprises.",
+          "features": [
+            "Helps manage sales, marketing, and reporting effortlessly"
+          ],
+          "pricing": "Available on request"
+        }
+      },
+
+      "Educational & Community Tools": {
+        "Bible Study AI Assistant": {
+          "description": "Conversational AI assistant offering SDA-based Bible lessons, EGW writings, and devotionals.",
+          "pricing": "Available on request"
+        },
+        "Health & Lifestyle Chat Assistant": {
+          "description": "Helps users follow natural health principles and daily wellness routines.",
+          "pricing": "Available on request"
+        },
+        "Digital Literacy & Training Portals": {
+          "description": "Custom e-learning platforms for communities, ministries, and organizations.",
+          "pricing": "Available on request"
+        }
+      },
+
+      "Media & Design Services": {
+        "Branding & Graphics": {
+          "description": "Branding, poster & banner design.",
+          "pricing": "Available on request"
+        },
+        "Video & Promotional Media": {
+          "description": "Video editing & promotional media for churches and startups.",
+          "pricing": "Available on request"
+        },
+        "Social Media Automation": {
+          "description": "Social media automation setup.",
+          "pricing": "Available on request"
+        }
+      }
+    }
+  }
+}
